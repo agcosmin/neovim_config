@@ -1,41 +1,40 @@
-" Settings to use .vimrc
-"set runtimepath+=~/.vim,~/.vim/after
-"set packpath+=~/.vim
-"source ~/.vimrc
-
-let g:python3_host_prog = '/usr/bin/python3'
-
 " Plugins
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-surround'
-Plug 'morhetz/gruvbox'
+Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 
-"====================Plugins setup====================
+"Plugins setup
 "Shougo/deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#disable_auto_complete = 1
-inoremap <expr> <C-n>  deoplete#mappings#manual_complete()
-inoremap <expr> <C-p>  deoplete#mappings#manual_complete()
+inoremap <expr> <C-n>  deoplete#manual_complete()
+inoremap <expr> <C-p>  deoplete#manual_complete()
 
 set path+=**
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-"Colorschemes
-"Solarized
-"set background=dark
-"colorscheme solarized8_high
+set termguicolors
 
-"Groovebox
+let g:PaperColor_Theme_Options = {
+  \   'language': {
+  \     'python': {
+  \       'highlight_builtins' : 1
+  \     },
+  \     'cpp': {
+  \       'highlight_standard_library': 1
+  \     },
+  \     'c': {
+  \       'highlight_builtins' : 1
+  \     }
+  \   }
+  \ }
+
 set background=dark
-let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
+colorscheme PaperColor
 
 syntax enable
 filetype plugin on
-
-set termguicolors
 
 "Disable cursor-styling
 set guicursor=
@@ -49,7 +48,6 @@ set expandtab
 
 set encoding=utf-8
 set scrolloff=3
-"set autoindent
 set smartindent
 set showmode
 set showcmd
@@ -73,12 +71,10 @@ set incsearch
 set showmatch
 set hlsearch
 nnoremap <leader><space> :noh<cr>
-nnoremap <tab> %
-vnoremap <tab> %
 
 set wrap
-set textwidth=100
-set formatoptions=qrn1
+set textwidth=80
+set formatoptions+=qrn1
 set colorcolumn=80
 
 set list listchars=tab:>-,trail:·,eol:¶
