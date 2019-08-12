@@ -12,10 +12,6 @@ let g:deoplete#disable_auto_complete = 1
 inoremap <expr> <C-n>  deoplete#manual_complete()
 inoremap <expr> <C-p>  deoplete#manual_complete()
 
-set path+=**
-
-set termguicolors
-
 let g:PaperColor_Theme_Options = {
   \   'language': {
   \     'python': {
@@ -30,11 +26,14 @@ let g:PaperColor_Theme_Options = {
   \   }
   \ }
 
-set background=dark
+"Neovim setup
+set path+=**
+
+set termguicolors
+
 colorscheme PaperColor
 
 syntax enable
-filetype plugin on
 
 "Disable cursor-styling
 set guicursor=
@@ -46,16 +45,13 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 
-set encoding=utf-8
 set scrolloff=3
 set smartindent
 set showmode
-set showcmd
 set hidden
 set wildmode=list:longest
 set visualbell
 set cursorline
-set backspace=indent,eol,start
 set relativenumber
 set number
 set undofile
@@ -66,15 +62,12 @@ noremap / /\v
 vnoremap / /\v
 set ignorecase
 set smartcase
-set gdefault
-set incsearch
 set showmatch
-set hlsearch
 nnoremap <leader><space> :noh<cr>
 
 set wrap
 set textwidth=80
-set formatoptions+=qrn1
+set formatoptions+=rn1
 set colorcolumn=80
 
 set list listchars=tab:>-,trail:·,eol:¶
@@ -90,12 +83,8 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-"Remove veritcal dashes for the verical split
-"set fillchars=vert:\ ,fold:-
-
 " Statusline
 " Reference: http://got-ravings.blogspot.com/2008/08/vim-pr0n-making-statuslines-that-own.html
-set laststatus=2
 set statusline=%f       "tail of the filename
 set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
 set statusline+=%{&ff}] "file format
